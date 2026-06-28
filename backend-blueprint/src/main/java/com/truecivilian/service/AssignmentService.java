@@ -77,7 +77,7 @@ public class AssignmentService {
 
         // Let's treat users with specific sub-roles, or we can list users in the system as officers
         List<User> officers = allUsers.stream()
-                .filter(u -> u.getRoles().stream().anyMatch(r -> r.getName().contains("VOLUNTEER") || r.getName().contains("AUTHORITY") || r.getName().contains("ADMIN")))
+                .filter(u -> u.getRoles().stream().anyMatch(r -> r.getName().name().contains("VOLUNTEER") || r.getName().name().contains("AUTHORITY") || r.getName().name().contains("ADMIN")))
                 .collect(Collectors.toList());
 
         // If list is empty, let's treat any user with non-empty username as eligible
@@ -113,7 +113,7 @@ public class AssignmentService {
             response.add(OfficerWorkloadResponse.builder()
                     .officerId(officer.getId())
                     .officerName(officer.getFirstName() + " " + officer.getLastName())
-                    .officerRole(officer.getRoles().stream().map(r -> r.getName().replace("ROLE_", "")).collect(Collectors.joining(", ")))
+                    .officerRole(officer.getRoles().stream().map(r -> r.getName().name()).collect(Collectors.joining(", ")))
                     .activeAssignmentsCount(active)
                     .completedCount(completed)
                     .efficiencyRating(active == 0 ? 100.0 : Math.round((completed * 100.0 / (active + completed)) * 10.0) / 10.0)

@@ -85,7 +85,7 @@ public class DashboardService {
                 .forEach(h -> {
                     recentActivities.add(AuthorityDashboardResponse.ActivityDto.builder()
                             .id(h.getId().toString())
-                            .description("Status transitioned from " + h.getOldStatus() + " to " + h.getNewStatus() + ". Note: " + h.getNotes())
+                            .description("Status transitioned from " + h.getOldStatus() + " to " + h.getNewStatus() + ". Note: " + h.getStatusChangeReason())
                             .timestamp(h.getCreatedAt().toString())
                             .type("STATUS_UPDATE")
                             .reporterName(h.getChangedBy() != null ? h.getChangedBy().getUsername() : "System AI")
