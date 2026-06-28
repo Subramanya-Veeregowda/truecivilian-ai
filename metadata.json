@@ -1,0 +1,11 @@
+{
+  "name": "TrueCivilian AI",
+  "description": "An AI-powered civic engagement platform enabling citizens to report local infrastructure issues, automatically classified and analyzed by Gemini AI.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
